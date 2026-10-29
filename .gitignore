@@ -5,3 +5,4 @@ outputs/
 *.pyc
 tests
 .env
+check_models.py
