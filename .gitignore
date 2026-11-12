@@ -6,3 +6,4 @@ outputs/
 tests
 .env
 check_models.py
+Make_template.py

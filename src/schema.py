@@ -1,42 +1,72 @@
+from typing import Literal
 from pydantic import BaseModel, Field
 
 
+class Bi(BaseModel):
+    """Văn bản song ngữ."""
+    vi: str
+    en: str
+
+
+class Workload(BaseModel):
+    lecture_periods: float = Field(description="Số tiết lý thuyết")
+    exercise_periods: float = Field(description="Số tiết bài tập")
+    lab_periods: float = Field(description="Số tiết thí nghiệm")
+    self_study_periods: float = Field(description="Số giờ tự học")
+
+
+class CourseInfo(BaseModel):
+    title: Bi
+    code: str
+    credits: float
+    ects: float | None = None
+    workload: Workload
+    teaching_methods: list[Bi]           # vd: Offline, Blended learning
+    relation_to_curriculum: Bi           # Bắt buộc / Tự chọn
+    prerequisites: list[str]             # mã học phần
+    language_of_instruction: str | None = None
+    semester: int | None = None
+    lecturers: list[str]
+    max_group_size: int | None = None
+
+
 class CLO(BaseModel):
-    code: str = Field(description="Mã chuẩn đầu ra, ví dụ CLO1")
-    description: str = Field(description="Năng lực người học đạt được")
+    code: str                            # CLO1, CLO2...
+    description: Bi
+    linked_plos: list[str]               # ["PLO02", "PLO03"]
+    level: Literal["I", "R", "M"]        # Introduced / Reinforced / Mastered
 
 
-class WeekContent(BaseModel):
-    week: int = Field(ge=1)
-    topic: str
-    content: str
-    hours: float | None = None
-    learning_activities: list[str] = Field(default_factory=list)
-    clo_codes: list[str] = Field(default_factory=list)
+class AssessmentComponent(BaseModel):
+    name: Bi
+    weight: float = Field(description="Tỉ trọng %, tổng các thành phần = 100")
+    timing: Bi                           # vd: tuần 17-19
 
 
-class Assessment(BaseModel):
-    component: str
-    weight: float = Field(ge=0, le=100)
-    method: str | None = None
-    description: str | None = None
-    clo_codes: list[str] = Field(default_factory=list)
+class BlueprintCell(BaseModel):
+    component: str                       # tên thành phần (khớp AssessmentComponent.name.vi)
+    clo_code: str
+    methods: list[Bi]                    # Kiểm tra viết, Trắc nghiệm, Vấn đáp...
+
+
+class Chapter(BaseModel):
+    number: int
+    title: Bi
+    topics: list[Bi]                     # các mục con
+    clo_codes: list[str]
+    activities: Bi                       # Giảng bài; bài tập; thảo luận
 
 
 class Reference(BaseModel):
-    title: str
-    author: str | None = None
-    year: int | None = None
-    source_pages: list[int] = Field(default_factory=list)
+    citation: str                        # tác giả, tên sách, NXB, năm
 
 
 class Syllabus(BaseModel):
-    course_name: str
-    course_code: str | None = None
-    credits: int | None = Field(default=None, ge=1)
-    description: str
-    objectives: list[str] = Field(min_length=1)
+    info: CourseInfo
+    description: Bi
     clos: list[CLO] = Field(min_length=1)
-    weekly_plan: list[WeekContent] = Field(min_length=1)
-    assessments: list[Assessment] = Field(min_length=1)
-    references: list[Reference] = Field(min_length=1)
+    assessments: list[AssessmentComponent] = Field(min_length=1)
+    blueprint: list[BlueprintCell]
+    chapters: list[Chapter] = Field(min_length=1)
+    required_readings: list[Reference]
+    recommended_readings: list[Reference]
