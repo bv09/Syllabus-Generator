@@ -1,0 +1,11 @@
+.venv/
+.venv_new/
+__pycache__/
+outputs/
+*.pyc
+.env
+.cache/
+.pytest_cache/
+check_models.py
+Make_template.py
+corpus

@@ -1,0 +1,9 @@
+import sys
+from pathlib import Path
+
+src_dir = str(Path(__file__).resolve().parents[1] / "src")
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
+
+import src.schema
+sys.modules["schema"] = src.schema

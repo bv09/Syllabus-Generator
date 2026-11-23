@@ -1,0 +1,44 @@
+{
+  "info": {
+    "title": {"vi": "Xử lý tín hiệu", "en": "Signal Processing"},
+    "code": "IT4172",
+    "credits": 2.0,
+    "ects": 3.25,
+    "workload": {"lecture_periods": 30, "exercise_periods": 15, "lab_periods": 0, "self_study_periods": 60},
+    "teaching_methods": [{"vi": "Giảng dạy trực tiếp", "en": "Offline"}],
+    "relation_to_curriculum": {"vi": "Bắt buộc", "en": "Mandatory course"},
+    "prerequisites": ["IT1110", "IT1108", "IT2000 and IT2110"],
+    "language_of_instruction": "Tiếng Việt",
+    "semester": 3,
+    "lecturers": ["Nguyễn Hồng Quang"],
+    "max_group_size": 60
+  },
+  "plos": ["PLO 01", "PLO 02", "PLO 03"],
+  "num_chapters": 4,
+  "hint": "Tín hiệu và hệ thống rời rạc, biến đổi Z, biến đổi Fourier rời rạc (DFT), biến đổi Fourier nhanh (FFT), thiết kế bộ lọc số FIR và IIR",
+  "assessments": [
+    {
+      "name": {
+        "vi": "Đánh giá quá trình (Kiểm tra giữa kỳ & Bài tập)",
+        "en": "Continuous assessment (Midterm test & Assignments)"
+      },
+      "weight": 30.0,
+      "timing": {
+        "vi": "Tuần 8-10",
+        "en": "Weeks 8-10"
+      }
+    },
+    {
+      "name": {
+        "vi": "Thi viết cuối kỳ",
+        "en": "Final written examination"
+      },
+      "weight": 70.0,
+      "timing": {
+        "vi": "Tuần 17-19",
+        "en": "Weeks 17-19"
+      }
+    }
+  ],
+  "constraints": {"clo_min": 3, "clo_max": 5, "top_level_min": 3, "max_all_clo_chapter_ratio": 0.5}
+}

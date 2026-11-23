@@ -1,0 +1,20 @@
+{
+  "info": {
+    "title": {"vi": "Cấu trúc dữ liệu và giải thuật", "en": "Data Structures and Algorithms"},
+    "code": "IT3011",
+    "credits": 2.0,
+    "ects": 3.25,
+    "workload": {"lecture_periods": 30, "exercise_periods": 15, "lab_periods": 0, "self_study_periods": 60},
+    "teaching_methods": [{"vi": "Giảng dạy trực tiếp", "en": "Offline"}],
+    "relation_to_curriculum": {"vi": "Bắt buộc", "en": "Mandatory course"},
+    "prerequisites": ["IT1108", "IT3220", "IT3210"],
+    "language_of_instruction": "Tiếng Việt",
+    "semester": 2,
+    "lecturers": ["Phạm Quang Dũng"],
+    "max_group_size": 60
+  },
+  "plos": ["PLO 01", "PLO 02", "PLO 03", "PLO 04"],
+  "num_chapters": 9,
+  "hint": "Cấu trúc dữ liệu cơ bản, đệ quy, sắp xếp, tìm kiếm, đồ thị",
+  "constraints": {"clo_min": 5, "clo_max": 5, "top_level_min": 3, "max_all_clo_chapter_ratio": 0.5}
+}

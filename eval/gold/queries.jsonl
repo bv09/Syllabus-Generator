@@ -1,0 +1,3 @@
+{"id": "q1", "course": "IT3011", "query": "Các cấu trúc dữ liệu cơ bản ngăn xếp hàng đợi danh sách liên kết", "relevant": [{"file": "01_intro.pdf", "pages": [1, 20]}], "note": "Mẫu - người điền cần cập nhật file và số trang thật"}
+{"id": "q2", "course": "IT3011", "query": "Các thuật toán sắp xếp quicksort mergesort heapsort", "relevant": [{"file": "02_sorting.pdf", "pages": [1, 35]}], "note": "Mẫu - người điền cần cập nhật file và số trang thật"}
+{"id": "q3", "course": "IT3011", "query": "Cây nhị phân tìm kiếm cây cân bằng AVL", "relevant": [{"file": "03_trees.pdf", "pages": [1, 25]}], "note": "Mẫu - người điền cần cập nhật file và số trang thật"}
